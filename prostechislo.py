@@ -26,13 +26,13 @@ def parochki():
     q1int=(int(''.join(str(i) for i in q1), 2))
     p1int=(int(''.join(str(i) for i in p1), 2))
     if qint*pint<=q1int*p1int:
-        return q, p, q1, p1
+        return qint, pint, q1int, p1int
     else:
-        return q1, p1, q, p
+        return q1int, p1int, qint, pint
 
 
 #print(int(''.join(str(i) for i in prostechislo(32)), 2))
 
-print(parochki())
+#print(parochki())
 
 
