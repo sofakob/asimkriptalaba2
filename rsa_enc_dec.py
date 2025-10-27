@@ -20,11 +20,9 @@ def Encrypt():
     print('Ваш шифротекст знаходиться у файлі cipher_text.txt')
 
 
-
-
 def Decrypt():
 
-    cipher_txt = input('Введіть назву файла з шифротекстом, який хочете зашифрувати: ')
+    cipher_txt = input('Введіть назву файла з шифротекстом, який хочете розшифрувати: ')
     private_key = input('Введіть назву файла зі своїм особистим ключем: ')
 
     with open(cipher_txt, 'r') as f:
@@ -46,5 +44,5 @@ def Decrypt():
 
     print('Ваше повідомлення знаходиться у файлі message.txt')
 
-
-Decrypt()   
+   
+Decrypt()
