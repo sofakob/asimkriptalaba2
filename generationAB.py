@@ -12,7 +12,7 @@ def chose_e(oyler_n:int):
 def key_odin(p, q):
     n=p*q
     func_oyler_n=(p-1)*(q-1)
-    e=chose_e(func_oyler_n)
+    e=0x10001
     d=pow(e, -1, func_oyler_n)
     return [n, e], [d, p, q]
 
@@ -23,8 +23,8 @@ def keysA_B():
     keys_a_open, key_a_secret=key_odin(p, q)
     keys_b_open, key_b_secret=key_odin(p1, q1)
     with open("open_keys_A.txt", "w") as f:
-        print(keys_a_open[0], file=f)
-        print(keys_a_open[1], file=f)
+        print(hex(keys_a_open[0]), file=f)
+        print(hex(keys_a_open[1]), file=f)
 
     with open("secret_keys_A.txt", "w") as f:
         print(key_a_secret[0], file=f)
@@ -32,8 +32,8 @@ def keysA_B():
         print(key_a_secret[2], file=f)
 
     with open("open_keys_B.txt", "w") as f:
-        print(keys_b_open[0], file=f)
-        print(keys_b_open[1], file=f)
+        print(hex(keys_b_open[0]), file=f)
+        print(hex(keys_b_open[1]), file=f)
 
     with open("secret_keys_B.txt", "w") as f:
         print(key_b_secret[0], file=f)

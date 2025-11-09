@@ -6,6 +6,7 @@ def prostechislo(k:int):
     test=False
     while test==False:
         p=l20(k)
+        print(p)
         proverochka=trial_division(p)
         if proverochka==True:
             test=miller_rabin(p)
@@ -31,8 +32,8 @@ def parochki():
         return q1int, p1int, qint, pint
 
 
-#print(int(''.join(str(i) for i in prostechislo(32)), 2))
+print(int(''.join(str(i) for i in prostechislo(32)), 2))
 
-#print(parochki())
+print(parochki())
 
 
