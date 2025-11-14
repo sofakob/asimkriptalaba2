@@ -6,27 +6,31 @@ from labanta import r_i_sequence
 
 
 def miller_rabin(a:list):
-    k=10
+    k=100
     p=int(''.join(str(i) for i in a), 2)
-    a=Decimal(int(''.join(str(i) for i in a), 2))
-    p_1=a-Decimal(1)
+    #a=Decimal(int(''.join(str(i) for i in a), 2))
+    #p_1=a-Decimal(1)
+    p_1=p-1
+
     s=0
     d=p_1
-    psevdosila=True
-    while int(d)%2==0:
+    psevdosila=False
+    while d%2==0:
         s+=1
-        d=d/Decimal(2)
-    for i in range(k):
-        x=randint(2, int(a)-1)
+        #d=d/Decimal(2)
+        d=d//2
+        print(d)
+    for _ in range(k):
+        x=randint(2, p-1)
         gcdx=gcd(x, p)
         if gcdx>1:
             return False
-        if pow(x, int(d), int(a))==1 or pow(x, int(d), int(a))==p-1:
+        if pow(x, d, p)==1 or pow(x, d, p)==p-1:
             psevdosila=True
         else:
-            for i in range(s):
+            for _ in range(s-1):
                 x=pow(x, 2, p)
-                if x==-1:
+                if x==p-1:
                     psevdosila=True
                     break
                 elif x==1:
@@ -37,6 +41,9 @@ def miller_rabin(a:list):
     
 
     return True
+
+
+
 
 
 def trial_division(n:list):

@@ -9,10 +9,10 @@ def Encrypt():
     with open(public_key, 'r') as f:
         n_e = f.readlines()
 
-    n = int(n_e[0].strip())
-    e = int(n_e[1].strip())
+    n = int(n_e[0].strip(), 16)
+    e = int(n_e[1].strip(), 16)
 
-    c = pow(m, e, n)
+    c = hex(pow(m, e, n))
 
     with open('cipher_text.txt', 'w') as f:
         f.write(str(c))
