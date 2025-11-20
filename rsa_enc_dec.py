@@ -9,10 +9,10 @@ def Encrypt():
     with open(public_key, 'r') as f:
         n_e = f.readlines()
 
-    n = int(n_e[0].strip())
-    e = int(n_e[1].strip())
+    n = int(n_e[0].strip(), 16)
+    e = int(n_e[1].strip(), 16)
 
-    c = pow(m, e, n)
+    c = hex(pow(m, e, n))
 
     with open('cipher_text.txt', 'w') as f:
         f.write(str(c))
@@ -26,7 +26,7 @@ def Decrypt():
     private_key = input('Введіть назву файла зі своїм особистим ключем: ')
 
     with open(cipher_txt, 'r') as f:
-        c = int(f.read())
+        c = int(f.read(), 16)
 
     with open(private_key, 'r') as f:
         d_p_q = f.readlines()
@@ -40,9 +40,15 @@ def Decrypt():
     m = pow(c, d, n)
 
     with open('message.txt', 'w') as f:
-        f.write(str(m))
+        f.write(hex(m))
 
     print('Ваше повідомлення знаходиться у файлі message.txt')
 
-   
-Decrypt()
+
+p=input("Введiть 1 якщо хочете зашифрувати повідомлення 2 якщо розшифрувати")
+if int(p)==1:
+    Encrypt()
+elif int(p)==2:
+    Decrypt()
+else:
+    print("Нормально треба користуватися програмою")
