@@ -12,7 +12,7 @@ def chose_e(oyler_n:int):
 def key_odin(p, q):
     n=p*q
     func_oyler_n=(p-1)*(q-1)
-    e=chose_e(func_oyler_n)
+    e=10001
     d=pow(e, -1, func_oyler_n)
     return [n, e], [d, p, q]
 
