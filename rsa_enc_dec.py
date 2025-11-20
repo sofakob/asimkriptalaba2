@@ -4,7 +4,7 @@ def Encrypt():
     public_key = input('Введіть назву файла з відкритим ключем адресата: ')
 
     with open(message, 'r') as f:
-        m = int(f.read())
+        m = int(f.read(), 16)
 
     with open(public_key, 'r') as f:
         n_e = f.readlines()
@@ -31,21 +31,21 @@ def Decrypt():
     with open(private_key, 'r') as f:
         d_p_q = f.readlines()
 
-    d = int(d_p_q[0].strip())
-    p = int(d_p_q[1].strip())
-    q = int(d_p_q[2].strip())
+    d = int(d_p_q[0].strip(), 16)
+    p = int(d_p_q[1].strip(), 16)
+    q = int(d_p_q[2].strip(), 16)
 
     n = p*q
     
-    m = pow(c, d, n)
+    m = hex(pow(c, d, n))
 
     with open('message.txt', 'w') as f:
-        f.write(hex(m))
+        f.write(str(m))
 
     print('Ваше повідомлення знаходиться у файлі message.txt')
 
 
-p=input("Введiть 1 якщо хочете зашифрувати повідомлення 2 якщо розшифрувати")
+p=input("Введiть 1, якщо хочете зашифрувати повідомлення та 2, якщо розшифрувати: ")
 if int(p)==1:
     Encrypt()
 elif int(p)==2:

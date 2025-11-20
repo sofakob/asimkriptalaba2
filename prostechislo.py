@@ -17,7 +17,7 @@ def prostechislo(k:int):
 
 
 def parochki():
-    k=256
+    k=105
     q=prostechislo(k)
     p=prostechislo(k)
     q1=prostechislo(k)
